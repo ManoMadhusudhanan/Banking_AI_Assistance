@@ -1,0 +1,12 @@
+# Secrets
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Uploads / runtime files
+uploads/
+
+# OS
+.DS_Store

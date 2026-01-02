@@ -1,0 +1,19 @@
+{
+  "retrieval": {
+    "precision": 0.548,
+    "recall": 0.28,
+    "mrr": 0.714,
+    "ndcg": 0.715
+  },
+  "generation": {
+    "faithfulness": "14/14",
+    "answer_relevance": "12/14",
+    "coherence": "12/14",
+    "fluency": "14/14"
+  },
+  "system": {
+    "hallucination_rate": 0.0,
+    "groundedness": "14/14",
+    "avg_latency": 7.25
+  }
+}

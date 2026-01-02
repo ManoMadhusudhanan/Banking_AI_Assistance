@@ -1,0 +1,73 @@
+[
+  {
+    "question": "What is NEFT?",
+    "expected_entities": ["NEFT", "National Electronic Funds Transfer"],
+    "answer_expected": true
+  },
+  {
+    "question": "How can I transfer money using NEFT?",
+    "expected_entities": ["NEFT", "Net Banking", "INDIE app"],
+    "answer_expected": true
+  },
+  {
+    "question": "What are the charges applicable for NEFT transactions?",
+    "expected_entities": ["NEFT", "charges", "fees"],
+    "answer_expected": true
+  },
+  {
+    "question": "How can I open a savings account online with IndusInd Bank?",
+    "expected_entities": ["savings account", "online", "Video KYC"],
+    "answer_expected": true
+  },
+  {
+    "question": "What documents are required to open a savings account?",
+    "expected_entities": ["Aadhaar", "PAN", "documents"],
+    "answer_expected": true
+  },
+  {
+    "question": "How can I open a savings account offline?",
+    "expected_entities": ["branch", "offline", "savings account"],
+    "answer_expected": true
+  },
+  {
+    "question": "What types of savings accounts does IndusInd Bank offer?",
+    "expected_entities": ["savings account", "account types", "variants"],
+    "answer_expected": true
+  },
+  {
+    "question": "How do I block my IndusInd Bank credit card?",
+    "expected_entities": ["credit card", "block", "INDIE app", "helpline"],
+    "answer_expected": true
+  },
+  {
+    "question": "Can I pay my credit card bill using NEFT?",
+    "expected_entities": ["credit card", "NEFT", "payment"],
+    "answer_expected": true
+  },
+  {
+    "question": "What is the minimum and maximum amount for IndusInd business loans?",
+    "expected_entities": ["business loan", "loan amount", "collateral-free"],
+    "answer_expected": true
+  },
+  {
+    "question": "Is collateral required for IndusInd Bank business loans?",
+    "expected_entities": ["collateral", "business loan"],
+    "answer_expected": true
+  },
+
+  {
+    "question": "What is the CEO salary of IndusInd Bank?",
+    "expected_entities": [],
+    "answer_expected": false
+  },
+  {
+    "question": "Who is the richest customer of IndusInd Bank?",
+    "expected_entities": [],
+    "answer_expected": false
+  },
+  {
+    "question": "What is the internal employee appraisal policy?",
+    "expected_entities": [],
+    "answer_expected": false
+  }
+]
