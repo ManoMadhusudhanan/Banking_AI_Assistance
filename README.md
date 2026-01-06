@@ -36,9 +36,8 @@ Graph-RAG (Relationship-Aware Retrieval) enhances the assistant by:
 
 CHAPTERS:
 
-- [Chapter 1: Frontend User Interface.](Chapter 1: Frontend User Interface./README.md)
-
-API Gateway & Orchestration
+- [Chapter 1: Frontend User Interface.](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/tree/main/Chapter%201%3A%20Frontend%20User%20Interface.)
+- [API Gateway & Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202:%20API%20Gateway%20&%20Orchestration.md)
 Text Preprocessing & Normalization
 Intent Detection
 Rule-based Banking Logic
