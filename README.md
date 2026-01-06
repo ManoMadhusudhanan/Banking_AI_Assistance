@@ -36,7 +36,8 @@ Graph-RAG (Relationship-Aware Retrieval) enhances the assistant by:
 
 CHAPTERS:
 
-Frontend User Interface
+[Chapter 1: Frontend User Interface.](
+
 API Gateway & Orchestration
 Text Preprocessing & Normalization
 Intent Detection
