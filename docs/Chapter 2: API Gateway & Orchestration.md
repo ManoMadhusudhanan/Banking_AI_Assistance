@@ -34,52 +34,29 @@ Once the API Gateway has received a request, the **Orchestration** part takes ov
 - **Coordinates Services**: It calls the right internal services (our "musicians") one by one, giving them the necessary information and combining their outputs.
 
 - **Builds the Final Response**: After all the services have done their part, the Orchestration collects their findings and crafts the final answer to send back to you.
-Feature	API Gateway (Receptionist)	Orchestration (Conductor)
-Main Role	Entry point, receives and routes requests.	Manages workflow, calls internal services in order.
-Analogy	The front door and receptionist of the bank.	The bank manager who assigns tasks and ensures completion.
-What it does	Takes your question from the Frontend.	Decides how to answer, step-by-step.
-Example Activity	Gets your "What is my balance?" message.	Calls "Understand Intent" -> "Search Docs" -> "Generate Reply".
-Our Use Case: "What is my account balance?"
+  
+### Our Use Case: "What is my account balance?"
 Let's revisit our example: you ask, "What is my account balance?"
 
-From Frontend to Gateway: You type "What is my account balance?" in the Frontend User Interface and click "Send". Your message travels over the internet and arrives at the API Gateway.
-Gateway Orchestrates: The API Gateway immediately starts its orchestration process.
-It first sends your question to an Intent Detection service to figure out you're asking about your "Account Balance".
-Next, it might decide if it needs to look up specific information using the Retrieval Augmented Generation (RAG) Engine. For a simple balance inquiry, it might not need RAG, or it might search for how to check a balance.
-Finally, it sends the gathered information (your original question, detected intent, any RAG context) to the Large Language Model (LLM) Integration to generate a friendly and accurate answer.
-Back to Frontend: The LLM generates the reply, for example, "Your current account balance is $1,250.75." This reply travels back through the API Gateway, which then sends it to the Frontend User Interface.
-You See the Answer: The Frontend displays the AI's answer in the chat window.
-What Happens Under the Hood? (Internal Implementation)
-Let's peek behind the scenes and see how the main.py file acts as our API Gateway and Orchestrator.
+ **1.From Frontend to Gateway:** You type "What is my account balance?" in the [Frontend User Interface](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%201%3A%20Frontend%20User%20Interface.md) and click "Send". Your message travels over the internet and arrives at the API Gateway.
+ **2.Gateway Orchestrates:** The API Gateway immediately starts its orchestration process.
+- It first sends your question to an [Intent Detection](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%204%3A%20Intent%20Detection.md) service to figure out you're asking about your "Account Balance".
+
+- Next, it might decide if it needs to look up specific information using the [Graph Retrieval Augmented Generation (RAG) Engine](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%206%3A%20Graph%20Retrieval%20Augmented%20Generation%20(RAG)%20Engine.md). For a simple balance inquiry, it might not need RAG, or it might search for how to check a balance.
+- Finally, it sends the gathered information (your original question, detected intent, any RAG context) to the [Large Language Model (LLM) Integration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%207%3A%20Large%20Language%20Model%20(LLM)%20Integration.md) to generate a friendly and accurate answer.
+ **3.Back to Frontend**: The LLM generates the reply, for example, "Your current account balance is $1,250.75." This reply travels back through the API Gateway, which then sends it to the [Frontend User Interface](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%201%3A%20Frontend%20User%20Interface.md).
+**4.You See the Answer:** The Frontend displays the AI's answer in the chat window.
+  
+### What Happens Under the Hood? (Internal Implementation)
+
+Let's peek behind the scenes and see how the `main.py` file acts as our API Gateway and Orchestrator.
 
 Here's a simplified step-by-step flow of what happens:
+<img width="70%" height="616" alt="image" src="https://github.com/user-attachments/assets/307d1d5e-4708-44b5-9f5d-62e88c35bdd7" />
 
-LLM
-RAG Engine
-Intent Detection
-API Gateway
-Frontend
-User
-LLM
-RAG Engine
-Intent Detection
-API Gateway
-Frontend
-User
-Orchestrates the request flow
-1. Types "What is my account balance?"
-2. Sends message to /chatbot/ask
-3. Asks "What is the user's intent?"
-4. Replies: "Account Inquiry"
-5. Searches for banking knowledge (if relevant)
-6. Provides relevant context (or nothing)
-7. Asks LLM to generate response
-8. Replies: "Your balance is..."
-9. Sends final answer
-10. Displays AI's response
-The API Gateway Entry Point
-Our main.py file uses a framework called FastAPI to create the API Gateway. The /chatbot/ask is the specific "door" that handles chat requests.
-
+### The API Gateway Entry Point
+Our `main.py` file uses a framework called FastAPI to create the API Gateway. The `/chatbot/ask` is the specific "door" that handles chat requests.
+```
 # From main.py
 from fastapi import FastAPI, Form, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
@@ -105,11 +82,12 @@ async def chatbot(
 ):
     raw_query = (message or "").strip()
     # ... orchestration logic begins here ...
-Explanation: This code sets up our FastAPI application. The @app.post("/chatbot/ask") part defines an endpoint (a specific URL) that the Frontend can send POST requests to. When the Frontend sends your message, this chatbot function is activated, receiving your message and session_id.
+```
+**Explanation**: This code sets up our FastAPI application. The `@app.post("/chatbot/ask")` part defines an endpoint (a specific URL) that the Frontend can send `POST` requests to. When the Frontend sends your message, this `chatbot` function is activated, receiving your `message` and `session_id`.
 
-The Orchestration Logic
-Inside the chatbot function, the orchestration begins. It's like a series of instructions for the conductor:
-
+### The Orchestration Logic
+Inside the `chatbot` function, the orchestration begins. It's like a series of instructions for the conductor:
+```
 # From main.py (inside the chatbot function)
 
     # 1. First, we clean up the user's raw message
@@ -138,14 +116,19 @@ Inside the chatbot function, the orchestration begins. It's like a series of ins
         reply = build_contact_update_response(mode)
         # We send the reply back immediately after this rule-based decision
         return {"reply": reply, "follow_up": suggest_follow_up(mode), "metrics": {...}}
-Explanation: Here, the API Gateway starts directing traffic:
+```
+**Explanation:** Here, the API Gateway starts directing traffic:
 
-It sends the raw_query to normalize_text() (a function that acts as our Text Preprocessing & Normalization service) to clean it up.
-Then, it calls detect_intent() (our Intent Detection service) to understand the user's goal.
-It also checks if the query matches certain "rule-based" banking logic, like updating a contact number. If it does, it directly provides a pre-defined answer, bypassing the more complex AI steps. This is a common way to handle predictable requests efficiently, covered further in Rule-based Banking Logic.
-Calling RAG and LLM
+1.It sends the `raw_query` to `normalize_text()` (a function that acts as our [Text Preprocessing & Normalization service](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%207%3A%20Large%20Language%20Model%20(LLM)%20Integration.md)) to clean it up.
+
+2.Then, it calls `detect_intent()` (our [Intent Detection](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%204%3A%20Intent%20Detection.md) service) to understand the user's goal.
+
+3.It also checks if the query matches certain "rule-based" banking logic, like updating a contact number. If it does, it directly provides a pre-defined answer, bypassing the more complex AI steps. This is a common way to handle predictable requests efficiently, covered further in [Rule-based Banking Logic](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205%3A%20Rule-based%20Banking%20Logic.md).
+
+### Calling RAG and LLM
 If the request isn't handled by a specific rule, the orchestration continues to decide if it needs to fetch external information (using RAG) or directly ask the LLM.
 
+```
 # From main.py (inside the chatbot function, continuing the flow)
 
     # ... (After intent detection and rule-based logic) ...
@@ -175,21 +158,27 @@ If the request isn't handled by a specific rule, the orchestration continues to 
             else: # If RAG found no context, just ask the LLM directly
                 reply = groq_chat(session_id, final_query) # Call the LLM without context
                 return {"reply": reply, "metrics": {"used_rag": False, ...}}
-Explanation: This part is the core decision-making:
+```
 
-The orchestrator checks if the query is banking-related.
-If use_rag is true (meaning we want to search for information), it calls rag_search() (our Retrieval Augmented Generation (RAG) Engine).
-If RAG finds relevant context, this context is cleverly added to the user's question to create a super-informed prompt.
-Finally, groq_chat() (our Large Language Model (LLM) Integration service) is called with this prompt. The LLM generates the answer.
-The API Gateway then takes this answer and sends it back to the Frontend.
+**Explanation:** This part is the core decision-making:
 
-Conclusion
-You've now seen how the API Gateway & Orchestration acts as the crucial central hub for our Banking AI Assistant. It's the receptionist that greets your requests and the conductor that directs the symphony of internal services, ensuring that your questions are processed efficiently and accurately, and that a helpful response is crafted and sent back to you.
+1.The orchestrator checks if the query is banking-related.
+
+2.If `use_rag` is true (meaning we want to search for information), it calls `rag_search()` (our [Graph Retrieval Augmented Generation (RAG) Engine](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%206%3A%20Graph%20Retrieval%20Augmented%20Generation%20(RAG)%20Engine.md)).
+
+3.If RAG finds relevant `context`, this context is cleverly added to the user's question to create a super-informed `prompt`.
+
+4.Finally, `groq_chat()` (our [Large Language Model (LLM) Integration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%207%3A%20Large%20Language%20Model%20(LLM)%20Integration.md) service) is called with this `prompt`. The LLM generates the answer.
+
+The API Gateway then takes this `answer` and sends it back to the Frontend.
+
+## Conclusion
+You've now seen how the **API Gateway & Orchestration** acts as the crucial central hub for our Banking AI Assistant. It's the receptionist that greets your requests and the conductor that directs the symphony of internal services, ensuring that your questions are processed efficiently and accurately, and that a helpful response is crafted and sent back to you.
 
 It efficiently manages the flow:
+- Receiving your message from the Frontend User Interface.
+- Guiding it through Text Preprocessing & Normalization and Intent Detection.
+- Deciding if Rule-based Banking Logic can handle it, or if it needs to consult the Retrieval Augmented Generation (RAG) Engine and the Large Language Model (LLM) Integration.
+- Sending the final answer back.
 
-Receiving your message from the Frontend User Interface.
-Guiding it through Text Preprocessing & Normalization and Intent Detection.
-Deciding if Rule-based Banking Logic can handle it, or if it needs to consult the Retrieval Augmented Generation (RAG) Engine and the Large Language Model (LLM) Integration.
-Sending the final answer back.
-Next, we'll dive deeper into the first step of this orchestration process: cleaning and preparing your text so the AI can understand it perfectly in Text Preprocessing & Normalization.
+Next, we'll dive deeper into the first step of this orchestration process: cleaning and preparing your text so the AI can understand it perfectly in [Text Preprocessing & Normalization](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%203%3A%20Text%20Preprocessing%20%26%20Normalization.md).
