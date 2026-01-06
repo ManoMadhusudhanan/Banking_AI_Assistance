@@ -189,4 +189,4 @@ You've just learned about the **Frontend User Interface**, the part of our Banki
   
 The Frontend makes the complex AI system accessible and user-friendly. But what happens after you click "Send" and before the AI's reply appears? That's where the next part of our system comes in!
 
-Let's move on to discover how your message travels from the Frontend to the AI's core logic in the next chapter: [API Gateway & Orchestration] (Chapter 2: API Gateway & Orchestration/README.md).
+Let's move on to discover how your message travels from the Frontend to the AI's core logic in the next chapter: [API Gateway & Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20API%20Gateway%20%26%20Orchestration.md).
