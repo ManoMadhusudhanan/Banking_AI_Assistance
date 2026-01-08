@@ -1,6 +1,6 @@
-# Chapter 5: Retrieval-Augmented Generation (RAG) Engine
+# Chapter 6: Graph Retrieval-Augmented Generation (RAG) Engine
 
-In Chapter 4: OCR (Optical Character Recognition) Utility, we saw how our Banking_AI_Assistance gained "eyes" to read text from images. Now, our bot can "see" your questions (whether typed text or text from an image) and (in Chapter 3: Intent Detection System) even "understand" what you're trying to do. But understanding isn't enough; the bot needs to provide accurate and factual answers, especially in banking where precision is key.
+In [Chapter 4.1: OCR (Optical Character Recognition) Utility](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%204.1%3A%20OCR%20(Optical%20Character%20Recognition)%20Utility.md), we saw how our Banking_AI_Assistance gained "eyes" to read text from images. Now, our bot can "see" your questions (whether typed text or text from an image) and (in [Chapter 4: Intent Detection System](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%204%3A%20Intent%20Detection.md)) even "understand" what you're trying to do. But understanding isn't enough; the bot needs to provide accurate and factual answers, especially in banking where precision is key.
 
 This is where the Retrieval-Augmented Generation (RAG) Engine becomes incredibly important. It's the component that gives our chatbot the ability to be a smart "research assistant" and ensures its answers are always grounded in real banking facts.
 
