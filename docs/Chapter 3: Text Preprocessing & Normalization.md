@@ -1,5 +1,5 @@
 # Chapter 3: Text Preprocessing & Normalization
-Welcome back, future AI experts! In our last chapter, [ Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md), we learned how your message, after leaving the [Frontend User Interface](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%201%3A%20Frontend%20User%20Interface.md), first arrives at a central hub. This hub, our "conductor," then decides the next steps. The very first step the conductor often directs your message to is exactly what we'll explore now: **Text Preprocessing & Normalization.**
+Welcome back, future AI experts! In our last chapter, [Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md), we learned how your message, after leaving the [Frontend User Interface](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%201%3A%20Frontend%20User%20Interface.md), first arrives at a central hub. This hub, our "conductor," then decides the next steps. The very first step the conductor often directs your message to is exactly what we'll explore now: **Text Preprocessing & Normalization.**
 
 ## What Problem Does it Solve?
 Imagine you're trying to talk to a very precise, but very literal, friend. If you say "whaat is my acount balence??!", they might stare blankly because they don't understand "whaat" or "balence", and the extra question marks confuse them. Our AI assistant is a bit like that literal friend.
@@ -54,7 +54,7 @@ When you type your question and send it, the process unfolds like this:
 <img width="70%" height="502" alt="image" src="https://github.com/user-attachments/assets/daf872a1-8ed8-42d1-ab20-a293e55a611f" />
 
 
-The [API Gateway & Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20API%20Gateway%20%26%20Orchestration.md) calls a dedicated utility, `text_utils.py`, to handle all this cleaning.
+The [Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md) calls a dedicated utility, `text_utils.py`, to handle all this cleaning.
 
 The `text_utils.py` File
 Our preprocessing logic lives in a file named `text_utils.py`. Let's look at the key parts of the `normalize_text` function within it.
