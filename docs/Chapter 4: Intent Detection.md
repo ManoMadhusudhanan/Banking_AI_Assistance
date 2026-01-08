@@ -53,7 +53,7 @@ Let's use our example query from previous chapters: "What is my account balance?
 
 **4. Result**: It tells the rest of the AI system: "The user's intent is Account_Balance_Inquiry with a high confidence score!"
 
-This allows the [API Gateway & Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20API%20Gateway%20%26%20Orchestration.md) to direct the request to the correct next step, which might involve looking up your actual account balance.
+This allows the [Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md) to direct the request to the correct next step, which might involve looking up your actual account balance.
 
 What if you uploaded an image of a bank statement?
 
@@ -69,7 +69,7 @@ What if you uploaded an image of a bank statement?
 Let's peek behind the curtain to see how Intent Detection works using the `intent_router.py` file.
 
 ### The Flow
-When the [API Gateway & Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20API%20Gateway%20%26%20Orchestration.md) needs to figure out your intent, here's how the steps unfold:
+When the [Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md) needs to figure out your intent, here's how the steps unfold:
 
 <img width="70%" height="615" alt="image" src="https://github.com/user-attachments/assets/774a961b-4f39-4b82-85f0-bd96e9e009b5" />
 
@@ -140,7 +140,7 @@ def _detect_from_text(text: str, threshold: float) -> Tuple[Optional[str], float
 - It keeps track of the `best_intent` (the one with the highest similarity score) and `best_score`.
 Finally, it checks if `best_score` meets our `threshold`. If not, it means the AI isn't confident enough, and None is returned for the intent.
 
-**3. The Public** `detect_intent` **Function (Handles Text and Images)**: This is the main function that the [API Gateway & Orchestration calls](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20API%20Gateway%20%26%20Orchestration.md). It acts as a switch, deciding if it needs to process an image first or directly use the text.
+**3. The Public** `detect_intent` **Function (Handles Text and Images)**: This is the main function that the [Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md). It acts as a switch, deciding if it needs to process an image first or directly use the text.
 ```
 # From intent_router.py
 from ocr_utils import extract_text_from_image # Needed for image processing
@@ -180,7 +180,7 @@ def detect_intent(
 - It returns the `intent` (e.g., `intent_0`), the `score` (confidence), and the `text_used` (either your original query or the text extracted from the image).
   
 ### How `main.py` Uses It
-Recall from [API Gateway & Orchestration calls](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20API%20Gateway%20%26%20Orchestration.md), that main.py orchestrates the entire process. It calls `detect_intent` right after text preprocessing:
+Recall from [Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md), that main.py orchestrates the entire process. It calls `detect_intent` right after text preprocessing:
 ```
 # From main.py (inside the chatbot function)
 
@@ -194,9 +194,9 @@ Recall from [API Gateway & Orchestration calls](https://github.com/ManoMadhusudh
 
     # ... Now, based on 'intent', the API Gateway decides the next step ...
 ```
-**Explanation**: The `normalized_query` (your clean text) and `image_path` (if an image was uploaded) are passed to `detect_intent`. The `intent` and `score` returned are then used by the API Gateway to decide whether to apply [Rule-based Banking Logic](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205%3A%20Rule-based%20Banking%20Logic.md), engage the [Graph Retrieval Augmented Generation (RAG) Engine](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%206%3A%20Graph%20Retrieval%20Augmented%20Generation%20(RAG)%20Engine.md), or send to the [Large Language Model (LLM) Integration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%207%3A%20Large%20Language%20Model%20(LLM)%20Integration.md).
+**Explanation**: The `normalized_query` (your clean text) and `image_path` (if an image was uploaded) are passed to `detect_intent`. The `intent` and `score` returned are then used by the API Gateway to decide whether to apply [Domain-Specific Banking Policy & Logic ](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205%3A%20Domain-Specific%20Banking%20Policy%20%26%20Logic%20.md), engage the [Graph Retrieval Augmented Generation (RAG) Engine](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%206%3A%20Graph%20Retrieval%20Augmented%20Generation%20(RAG)%20Engine.md), or send to the [Large Language Model (LLM) Integration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%207%3A%20Large%20Language%20Model%20(LLM)%20Integration.md).
 
 ## Conclusion
 You've now uncovered the crucial role of **Intent Detection** in our Banking AI Assistant! It acts as the intelligent receptionist, understanding the true goal behind your questions or images. By transforming your input into a recognized banking intent (like **Account_Balance_Inquiry**), it efficiently guides the AI system to the right resources and decision-making paths. This ensures you get an accurate and relevant answer every time.
 
-Now that our AI knows what you want to do, what if your request is very specific and simple, like "I want to change my contact number"? Our system has smart, pre-set rules for such cases. Let's explore how these rules work in the next chapter: [Rule-based Banking Logic]([Rule-based Banking Logic](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205%3A%20Rule-based%20Banking%20Logic.md)).
+Now that our AI knows what you want to do, what if your request is very specific and simple, like "I want to change my contact number"? Our system has smart, pre-set rules for such cases. Let's explore how these rules work in the next chapter: [Domain-Specific Banking Policy & Logic ](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205%3A%20Domain-Specific%20Banking%20Policy%20%26%20Logic%20.md).
