@@ -124,4 +124,4 @@ We've now seen how the OCR (Optical Character Recognition) Utility equips our `B
 
 Now that our bot can "see" and understand your questions (whether text or image), the next step is to find accurate and relevant answers from our vast knowledge base.
 
-Next Chapter: Retrieval-Augmented Generation (RAG) Engine
+Next Chapter: [Domain-Specific Banking Policy & Logic](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205%3A%20Domain-Specific%20Banking%20Policy%20%26%20Logic%20.md)
