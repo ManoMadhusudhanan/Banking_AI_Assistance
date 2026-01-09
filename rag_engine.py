@@ -44,7 +44,7 @@ embedder = SentenceTransformer("all-MiniLM-L6-v2")
 # QDRANT CLIENT
 # --------------------------------------------------
 qdrant_client = QdrantClient(
-    url="https://c299fd03-1832-4dc4-8e2e-af6b0fd684f7.us-east4-0.gcp.cloud.qdrant.io:6333",
+    url="Your QDRANT_URL ",
     api_key=QDRANT_API_KEY,
     check_compatibility=False
 )
