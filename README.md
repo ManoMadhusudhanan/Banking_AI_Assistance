@@ -36,10 +36,11 @@ Graph-RAG (Relationship-Aware Retrieval) enhances the assistant by:
 
 CHAPTERS:
 
-- [Chapter 1: Frontend User Interface.](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%201%3A%20Frontend%20User%20Interface.md)
-- [Chapter 2: API Gateway & Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202:%20API%20Gateway%20&%20Orchestration.md)
-Text Preprocessing & Normalization
-Intent Detection
-Rule-based Banking Logic
-Retrieval Augmented Generation (RAG) Engine
-Large Language Model (LLM) Integration
+- [Chapter 1: Frontend User Interface](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%201%3A%20Frontend%20User%20Interface.md)
+- [Chapter 2: Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md)
+- [Chapter 3: Text Preprocessing & Normalization](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%203%3A%20Text%20Preprocessing%20%26%20Normalization.md)
+- [Chapter 4: Intent Detection](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%204%3A%20Intent%20Detection.md)
+- [Chapter 4.1: OCR (Optical Character Recognition) Utility](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%204.1:%20OCR%20(Optical%20Character%20Recognition)%20Utility.md)
+- [Chapter 5: Domain-Specific Banking Policy & Logic](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205%3A%20Domain-Specific%20Banking%20Policy%20%26%20Logic%20.md)
+- [Chapter 6: Graph Retrieval-Augmented Generation (RAG) Engine](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%206%3A%20Graph%20Retrieval%20Augmented%20Generation%20(RAG)%20Engine.md)
+- [Chapter 7: Large Language Model (LLM) Service](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%207%3A%20Large%20Language%20Model%20(LLM)%20Integration.md)
