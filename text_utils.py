@@ -49,11 +49,11 @@ def normalize_text(text: str) -> str:
 
     corrected_words = []
     for word in text.split():
-        # ✅ Do NOT correct protected banking terms
+        # Do NOT correct protected banking terms
         if word in PROTECTED_TERMS:
             corrected_words.append(word)
 
-        # ✅ Safe correction for normal words
+        # Safe correction for normal words
         elif word.isalpha() and len(word) > 2:
             corrected_words.append(spell.correction(word) or word)
 
