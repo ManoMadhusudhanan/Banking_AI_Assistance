@@ -79,7 +79,8 @@ Let's peek behind the scenes to see how the Frontend makes all this happen. Thin
 
 Here's a simple step-by-step breakdown:
 
-<img width="1154" height="592" alt="image" src="https://github.com/user-attachments/assets/65313e33-6001-410b-899d-6bea13bf1d6b" />
+<img width="70%" height="592" alt="image" src="https://github.com/user-attachments/assets/65313e33-6001-410b-899d-6bea13bf1d6b" />
+
 
 - **User Input:** When you type your question and click "Send," the JavaScript code in index.html captures your text from the userInput box.
 - **Displaying Your Message:** The Frontend immediately creates a new HTML element to show your question in the chat window, so you know it was sent.
