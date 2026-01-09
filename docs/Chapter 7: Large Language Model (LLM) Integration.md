@@ -1,6 +1,6 @@
 # Chapter 7: Large Language Model (LLM) Service
 
-In Chapter 6: Domain-Specific Banking Policy & Logic, we learned how our Banking_AI_Assistance meticulously follows strict rules for sensitive banking tasks, ensuring security and compliance. This is crucial for actions like updating your mobile number.
+In [Chapter 5: Domain-Specific Banking Policy & Logic](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%205:%20Domain-Specific%20Banking%20Policy%20&%20Logic%20.md), we learned how our Banking_AI_Assistance meticulously follows strict rules for sensitive banking tasks, ensuring security and compliance. This is crucial for actions like updating your mobile number.
 
 But what about questions that are not tied to specific policies, situations where the Retrieval-Augmented Generation (RAG) Engine does not find exact factual context, or even general chit-chat? This is where the **Large Language Model (LLM) Service** comes into play. It provides the chatbot with the ability to think, understand, and respond like a human, delivering helpful and coherent answers across a wide range of inquiries.
 
