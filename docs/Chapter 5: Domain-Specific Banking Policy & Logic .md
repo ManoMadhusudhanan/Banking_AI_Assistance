@@ -1,6 +1,6 @@
 # Chapter 5: Domain-Specific Banking Policy & Logic
 
-In Chapter 6: Graph Retrieval-Augmented Generation (RAG) Engine, we will explore how our Banking_AI_Assistance will act as a smart "research assistant," retrieving factual information from official bank documents to answer user questions accurately. This approach will be particularly useful for general inquiries such as "What are the loan eligibility criteria?".
+In [Chapter 6: Graph Retrieval-Augmented Generation (RAG) Engine](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%206%3A%20Graph%20Retrieval%20Augmented%20Generation%20(RAG)%20Engine.md), we will explore how our Banking_AI_Assistance will act as a smart "research assistant," retrieving factual information from official bank documents to answer user questions accurately. This approach will be particularly useful for general inquiries such as "What are the loan eligibility criteria?".
 
 However, banking will involve many actions that require strict adherence to specific rules, procedures, and security protocols. For these sensitive or critical tasks, simply looking up facts or relying on a general AI response will not be sufficient. We will need a system that behaves like a bank’s official rulebook, ensuring that every step is followed precisely.
 
