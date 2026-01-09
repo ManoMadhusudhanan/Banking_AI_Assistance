@@ -33,9 +33,9 @@ Graph-RAG (Relationship-Aware Retrieval) enhances the assistant by:
 - This layered approach ensures the assistant remains fast, accurate, scalable, and enterprise-ready, while avoiding the pitfalls of a graph-only system.
 
 <img width="1136" height="587" alt="image" src="https://github.com/user-attachments/assets/dec47ad0-5551-4fd9-9828-d42a6c29d8ad" />
+ 
 
-CHAPTERS:
-
+### CHAPTERS:
 - [Chapter 1: Frontend User Interface](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%201%3A%20Frontend%20User%20Interface.md)
 - [Chapter 2: Chatbot API and Orchestration](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%202%3A%20Chatbot%20API%20and%20Orchestration.md)
 - [Chapter 3: Text Preprocessing & Normalization](https://github.com/ManoMadhusudhanan/Banking_AI_Assistance/blob/main/docs/Chapter%203%3A%20Text%20Preprocessing%20%26%20Normalization.md)
